@@ -1,7 +1,7 @@
-﻿<Application x:Class="XpsWpf.App"
+﻿<Application x:Class="trisshores.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:XpsWpf"
+             xmlns:local="clr-namespace:trisshores"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
          

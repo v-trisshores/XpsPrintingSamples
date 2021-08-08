@@ -4,7 +4,7 @@ using System.Printing;
 using System.Threading;
 using System.Windows;
 
-namespace XpsWpf
+namespace trisshores
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -15,10 +15,10 @@ namespace XpsWpf
         {
             InitializeComponent();
 
-            RunXps1();
+            BatchPrintXps();
         }
 
-        private void RunXps1()
+        public void BatchPrintXps()
         {
             // Create the secondary thread and pass the printing method for 
             // the constructor's ThreadStart delegate parameter. The BatchXPSPrinter
@@ -38,53 +38,50 @@ namespace XpsWpf
             public static void PrintXPS()
             {
                 // Create print server and print queue.
-                LocalPrintServer localPrintServer = new LocalPrintServer();
                 PrintQueue defaultPrintQueue = LocalPrintServer.GetDefaultPrintQueue();
 
                 // Prompt user to identify the directory, and then create the directory object.
                 Console.Write("Enter the directory containing the XPS files: ");
-                string directoryPath = @"C:\Users\Tris Shores\Desktop";
-                DirectoryInfo dir = new DirectoryInfo(directoryPath);
+                var directoryPath = @"C:\Users\Tris Shores\Desktop";    // Console.ReadLine(); 
+                var dir = new DirectoryInfo(directoryPath);
 
                 // If the user mistyped, end the thread and return to the Main thread.
                 if (!dir.Exists)
                 {
                     Console.WriteLine("There is no such directory.");
+                    return;
                 }
-                else
+
+                // If there are no XPS files in the directory, end the thread 
+                // and return to the Main thread.
+                if (dir.GetFiles("*.xps").Length == 0)
                 {
-                    // If there are no XPS files in the directory, end the thread 
-                    // and return to the Main thread.
-                    if (dir.GetFiles("*.oxps").Length == 0)
+                    Console.WriteLine("There are no XPS files in the directory.");
+                    return;
+                }
+
+                Console.WriteLine("\nJobs will now be added to the print queue.");
+                Console.WriteLine("If the queue is not paused and the printer is working, jobs will begin printing.");
+
+                // Batch process all XPS files in the directory.
+                foreach (FileInfo file in dir.GetFiles("*.xps"))
+                {
+                    var nextFile = directoryPath + "\\" + file.Name;
+                    Console.WriteLine($"Adding {nextFile} to queue.");
+
+                    try
                     {
-                        Console.WriteLine("There are no XPS files in the directory.");
+                        // Print the Xps file while providing XPS validation and progress notifications.
+                        PrintSystemJobInfo xpsPrintJob = defaultPrintQueue.AddJob(file.Name, nextFile, fastCopy: false);
                     }
-                    else
+                    catch (PrintJobException e)
                     {
-                        Console.WriteLine("\nJobs will now be added to the print queue.");
-                        Console.WriteLine("If the queue is not paused and the printer is working, jobs will begin printing.");
-
-                        // Batch process all XPS files in the directory.
-                        foreach (FileInfo f in dir.GetFiles("*.xps"))
+                        Console.WriteLine("\n\t{0} could not be added to the print queue.", file.Name);
+                        if (e.InnerException.Message == "File contains corrupted data.")
                         {
-                            String nextFile = directoryPath + "\\" + f.Name;
-                            Console.WriteLine("Adding {0} to queue.", nextFile);
-
-                            try
-                            {
-                                // Print the Xps file while providing XPS validation and progress notifications.
-                                PrintSystemJobInfo xpsPrintJob = defaultPrintQueue.AddJob(f.Name, nextFile, false);
-                            }
-                            catch (PrintJobException e)
-                            {
-                                Console.WriteLine("\n\t{0} could not be added to the print queue.", f.Name);
-                                if (e.InnerException.Message == "File contains corrupted data.")
-                                {
-                                    Console.WriteLine("\tIt is not a valid XPS file. Use the isXPS Conformance Tool to debug it.");
-                                }
-                                Console.WriteLine("\tContinuing with next XPS file.\n");
-                            }
+                            Console.WriteLine("\tIt is not a valid XPS file. Use the isXPS Conformance Tool to debug it.");
                         }
+                        Console.WriteLine("\tContinuing with next XPS file.\n");
                     }
                 }
             }

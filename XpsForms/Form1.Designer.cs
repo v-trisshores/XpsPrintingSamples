@@ -1,5 +1,5 @@
 ﻿
-namespace XpsWinForms
+namespace trisshores
 {
     partial class Form1
     {

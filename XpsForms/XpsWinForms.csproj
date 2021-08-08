@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{C25EF399-191E-4508-8349-9A5C0C2E6C00}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>XpsWinForms</RootNamespace>
+    <RootNamespace>trisshores</RootNamespace>
     <AssemblyName>XpsWinForms</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -64,6 +64,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
