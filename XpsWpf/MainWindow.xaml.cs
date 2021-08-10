@@ -15,10 +15,10 @@ namespace trisshores
         {
             InitializeComponent();
 
-            BatchPrintXps();
+            BatchPrintXps(null, null);
         }
 
-        public void BatchPrintXps()
+        public void BatchPrintXps(object sender, RoutedEventArgs e)
         {
             // Create the secondary thread and pass the printing method for 
             // the constructor's ThreadStart delegate parameter. The BatchXPSPrinter
@@ -38,6 +38,7 @@ namespace trisshores
             public static void PrintXPS()
             {
                 // Create print server and print queue.
+                //LocalPrintServer localPrintServer = new LocalPrintServer(); // not needed.
                 PrintQueue defaultPrintQueue = LocalPrintServer.GetDefaultPrintQueue();
 
                 // Prompt user to identify the directory, and then create the directory object.
