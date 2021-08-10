@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31515.178
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wpf-Xps-PrintQueueAddJob", "XpsWpf\Wpf-Xps-PrintQueueAddJob.csproj", "{58993E27-F4EB-4D28-B521-FA8CDFC7A475}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XpsWinForms", "XpsForms\XpsWinForms.csproj", "{C25EF399-191E-4508-8349-9A5C0C2E6C00}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wpf-Xps-PrintDialogPrintDoc", "Wpf-Xps-PrintDialog\Wpf-Xps-PrintDialogPrintDoc.csproj", "{73F70329-A7BE-462F-865E-59E3C2623367}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wpf-Xps-PrintTicket", "Wpf-Xps-PrintTicket\Wpf-Xps-PrintTicket.csproj", "{09BDA6BF-10B3-4A7D-89F2-B8CAD663BBE6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wpf-Xps-PrintTicket", "Wpf-Xps-PrintTicket\Wpf-Xps-PrintTicket.csproj", "{09BDA6BF-10B3-4A7D-89F2-B8CAD663BBE6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wpf-Xps-XpsDocWriter", "Wpf-Xps-XpsDocWriter\Wpf-Xps-XpsDocWriter.csproj", "{2C6CEA50-6F85-41A1-A601-B0F2D3C2E6ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wpf-Xps-XpsDocWriter", "Wpf-Xps-XpsDocWriter\Wpf-Xps-XpsDocWriter.csproj", "{2C6CEA50-6F85-41A1-A601-B0F2D3C2E6ED}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wpf-Xps-PrintQueueAddJob", "Wpf-Xps-PrintQueueAddJob\Wpf-Xps-PrintQueueAddJob.csproj", "{48AAC914-6A55-4D30-91B4-0D303C71A7BC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,10 +19,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{58993E27-F4EB-4D28-B521-FA8CDFC7A475}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{58993E27-F4EB-4D28-B521-FA8CDFC7A475}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{58993E27-F4EB-4D28-B521-FA8CDFC7A475}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{58993E27-F4EB-4D28-B521-FA8CDFC7A475}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C25EF399-191E-4508-8349-9A5C0C2E6C00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C25EF399-191E-4508-8349-9A5C0C2E6C00}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C25EF399-191E-4508-8349-9A5C0C2E6C00}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,6 +35,10 @@ Global
 		{2C6CEA50-6F85-41A1-A601-B0F2D3C2E6ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2C6CEA50-6F85-41A1-A601-B0F2D3C2E6ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2C6CEA50-6F85-41A1-A601-B0F2D3C2E6ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48AAC914-6A55-4D30-91B4-0D303C71A7BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48AAC914-6A55-4D30-91B4-0D303C71A7BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48AAC914-6A55-4D30-91B4-0D303C71A7BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48AAC914-6A55-4D30-91B4-0D303C71A7BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
